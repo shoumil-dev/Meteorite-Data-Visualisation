@@ -1,0 +1,88 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Meteorite Landings on Earth (till 2016)",
+    "width": 1000,
+    "height": 800,
+    "background": "#d9f0f6", 
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/shoumil-dev/meteorite-landings/main/js/ne_110m.json",
+                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            },
+
+            "projection": {
+                "type": "equirectangular"
+            },
+
+            "mark": {
+                "type": "geoshape",
+                "fill": "#eccaae",
+                "stroke": "white",
+                "strokeWidth": 0.3
+            }
+        },
+
+        {
+            
+            "data": {
+                "url": "https://raw.githubusercontent.com/shoumil-dev/meteorite-landings/main/js/ne_110m.json",
+                "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+            },
+
+            "projection": {
+                "type": "equirectangular"
+            },
+
+            "mark": {
+                "type": "geoshape",
+                "stroke": "gray",
+                "strokeWidth": 0.1
+            }
+        },
+        
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/shoumil-dev/meteorite-landings/main/data/meteorite-landings.csv"
+            },
+
+            "projection": {
+                "type": "equirectangular"
+            },
+            "mark": {
+                "type": "circle"
+            },
+            "encoding": {
+                "tooltip": [
+                    {"field": "Name", "type": "nominal", "title": "Name"},
+                    {"field": "Mass", "type": "quantitative", "title": "Mass"},
+                    {"field": "Latitude", "type": "quantitative", "title": "Latitude"},
+                    {"field": "Longitude", "type": "quantitative", "title": "Longitude"},
+                    {"field": "Year", "type": "ordinal", "title": "Year Fell"}
+                ],
+
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                
+                "size": {
+                    "field": "Mass",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [100000, 1000000, 10000000, 50000000],
+                        "range": [0, 25, 100, 200, 400]
+                    }
+                },
+                
+                "color": {"value": "red"}
+            }
+        }
+    ]
+}
