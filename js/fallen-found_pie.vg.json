@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A pie chart showing the distribution between fallen and found meteorites.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/shoumil-dev/meteorite-landings/main/data/meteorite-landings.csv"
+    },
+    
+    "encoding": {
+      
+      "theta": {"field": "Fall", "type": "quantitative", "stack": true, "aggregate": "count"},
+      "color": {"field": "Fall", "type": "nominal", "legend": null}
+    },
+    
+    "layer": [
+        {
+            "mark": {"type": "arc", "outerRadius": 80}
+        }, 
+    
+        {
+            "mark": {"type": "text", "radius": 90},
+            "encoding": {
+                "text": {"field": "Fall", "type": "nominal"}
+            }
+        }
+    ]
+  }
