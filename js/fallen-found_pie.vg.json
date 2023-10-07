@@ -1,11 +1,17 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "A pie chart showing the distribution between fallen and found meteorites.",
-    "width": 1000,
-    "height": 800,
-    "background": "#d9f0f6",
+    "width": 10,
+    "height":10,
+    "background": "#21252A",
     "data": {
         "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/data/meteorite-landings.csv"
+    },
+
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
     },
 
     "transform": [
@@ -30,18 +36,18 @@
     
     "layer": [
         {
-            "mark": {"type": "arc", "outerRadius": 300}
+            "mark": {"type": "arc", "outerRadius": 150}
         }, 
     
         {
-            "mark": {"type": "text", "radius": 330, "fontSize": 30, "fontWeight": "bold"},
+            "mark": {"type": "text", "radius": 165, "fontSize": 20, "fontWeight": "bold"},
             "encoding": {
                 "text": {"field": "Fall", "type": "nominal"}
             }
         },
 
         {
-            "mark": {"type": "text", "outerRadius": 250, "fontSize": 20, "fill":"white"},
+            "mark": {"type": "text", "outerRadius": 85, "fontSize": 13, "fill":"white"},
             "encoding": {
                 "text": {"field": "percentage", "type": "quantitative", "format": ".2%"}
             }
