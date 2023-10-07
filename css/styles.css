@@ -1,8 +1,54 @@
 #meteorite-landings_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/* height: 1000px;
-	width: 800px; */
+	padding-top: 4%;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 5%;
+}
+
+#fallen-found_pie {
+	padding-top: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
+	
+}
+
+#heading {
+	padding: 60px;
+	text-align: center;
+	background: "cyan";
+
+	color: orange;
+	font-size: 350%;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-style: italic;
+
+  }
+
+.intro {
+text-align: center; /* Center-align the text horizontally */
+font-family: Georgia, serif; /* Use the Georgia font */
+color: white; /* Set the text color to white */
+padding-left: 20%;
+padding-right: 20%;
+padding-bottom: 5%;
+}
+
+.paragraph {
+	font-family: Georgia, serif;
+	color: white;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.header {
+	font-family: Georgia, serif;
+	color: white;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.page {
+	width: 1280px;
+	margin: auto;
+	padding-top: 35px;
 }
