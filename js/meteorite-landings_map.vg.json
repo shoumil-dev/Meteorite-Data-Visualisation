@@ -1,92 +1,171 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Meteorite Landings on Earth (till 2016)",
-    "width": 800,
-    "height": 500,
-    "background": "#21252A",
-    "config": {
-      "title": {
-        "color": "white"
-      },
-      "axis": {
-        "labelColor": "white"
-      },
-      "legend": {
-        "titleColor": "white",
-        "labelColor": "white"
-      },
-      "view": {
-        "stroke": "transparent"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Meteorite Landings on Earth (till 2016)",
+  "width": 1000,
+  "height": 500,
+  "background": "#21252A",
+  "config": {
+    "title": {
+      "color": "white"
+    },
+    "axis": {
+      "labelColor": "white"
+    },
+    "legend": {
+      "titleColor": "white",
+      "labelColor": "white"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 160,
+      "bind": {
+        "input": "range",
+        "min": 160,
+        "max": 800,
+        "step": 20,
+        "name": "Zoom: "
       }
     },
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/js/ne_110m.json",
-          "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
-        },
-        "projection": {
-          "type": "equirectangular"
-        },
-        "mark": {
-          "type": "geoshape",
-          "fill": "#424852",
-          "stroke": "white",
-          "strokeWidth": 0.3
+    {
+      "name": "center_to",
+      "value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],
+          [15, 45],
+          [15, 0],
+          [60, 30],
+          [115, 15],
+          [130, -25],
+          [-100, 50],
+          [-90, 10],
+          [-65, -20]
+        ],
+        "labels": [
+          "Center",
+          "Europe",
+          "Africa",
+          "Middle East Asia",
+          "East Asia",
+          "Oceania",
+          "North America",
+          "Central America",
+          "South America"
+        ],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/js/ne_110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
         }
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/js/ne_110m.json",
-          "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
-        },
-        "projection": {
-          "type": "equirectangular"
-        },
-        "mark": {
-          "type": "geoshape",
-          "stroke": "gray",
-          "strokeWidth": 0.1
+      "projection": {
+        "type": "equirectangular",
+        "center": {"expr": "center_to"},
+        "scale": {"expr": "zoom_level"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#424852",
+        "stroke": "white",
+        "strokeWidth": 0.3
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/js/ne_110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
         }
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/data/meteorite-landings.csv"
-        },
-        "projection": {
-          "type": "equirectangular"
-        },
-        "mark": {
-          "type": "circle"
-        },
-        "encoding": {
-          "tooltip": [
-            { "field": "Name", "type": "nominal", "title": "Name" },
-            { "field": "Mass", "type": "quantitative", "title": "Mass" },
-            { "field": "Latitude", "type": "quantitative", "title": "Latitude" },
-            { "field": "Longitude", "type": "quantitative", "title": "Longitude" },
-            { "field": "Year", "type": "ordinal", "title": "Year Fell" }
-          ],
-          "longitude": {
-            "field": "Longitude",
-            "type": "quantitative"
+      "projection": {
+        "type": "equirectangular",
+        "center": {"expr": "center_to"},
+        "scale": {"expr": "zoom_level"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "gray",
+        "strokeWidth": 0.1
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/data/meteorite-landings.csv"
+      },
+      "projection": {
+        "type": "equirectangular",
+        "center": {"expr": "center_to"},
+        "scale": {"expr": "zoom_level"}
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#faa500",
+        "stroke": "white",
+        "opacity": 0.7,
+        "strokeWidth": 0.5,
+        "strokeOpacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "Name",
+            "type": "nominal",
+            "title": "Name"
           },
-          "latitude": {
-            "field": "Latitude",
-            "type": "quantitative"
-          },
-          "size": {
+          {
             "field": "Mass",
             "type": "quantitative",
-            "scale": {
-              "type": "threshold",
-              "domain": [100000, 1000000, 10000000, 50000000],
-              "range": [0, 25, 100, 200, 400]
-            }
+            "title": "Mass"
           },
-          "color": { "value": "#FAA500" }
+          {
+            "field": "Latitude",
+            "type": "quantitative",
+            "title": "Latitude"
+          },
+          {
+            "field": "Longitude",
+            "type": "quantitative",
+            "title": "Longitude"
+          },
+          {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year Fell"
+          }
+        ],
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "Mass",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [100000, 1000000, 10000000, 50000000],
+            "range": [0, 25, 100, 200, 400]
+          }
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
