@@ -1,0 +1,116 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Meteorite Landings Over the Years (Until 2013)",
+    "width": 1000,
+    "height": 600, 
+    "data": {
+        "url": "https://raw.githubusercontent.com/shoumil-dev/Interactive-Visualisation-Vega-Lite/main/data/meteorite_landings_prod.csv"
+    },
+
+    "config": {
+        "background": "#21252A",
+        "title": {
+            "color": "white"
+        },
+        "axis": {
+            "labelColor": "gray",
+            "titleColor": "gray",
+            "gridColor": "gray"
+        },
+        "mark": {
+            "color": "#faa500"
+        }
+    },
+    
+    "params": [
+        {
+            "name": "Year_Max",
+            "value": 1910,
+            "bind": {
+                "input":"range",
+                "step": 10,
+                "min": 1620,
+                "max": 2013,
+                "name": "Year-Decade"
+            }
+        }
+    ],
+    "transform": [
+        {"filter": "datum.year <= Year_Max + 10"},
+        {"filter": "datum.year >= Year_Max"}
+    ],
+    "layer":
+    [
+        {
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline":"middle",
+                "dx": -12,
+                "fontSize": 11.5,
+                "fontStyle": "italic",
+                "color": "white"
+            },
+            "encoding": {
+                "text": {"field": "location", "type": "nominal"},
+                "opacity": {
+                    "condition": {
+                        "test": "datum['location'] == 'India' || datum['location'] == 'China' || datum['location'] == 'Malaysia'",
+                        "value": 1
+                    },
+                    "value": 0
+                },
+                "x": {
+                    "field": "year",
+                    "type": "ordinal",
+                    "title": "Year"
+                },
+    
+                "y": {
+                    "field": "mass",
+                    "type": "quantitative",
+                    "title": "Mass (kg)",
+                    "scale": {
+                        "type": "symlog"
+                    }
+                }
+            }
+        },
+        {"mark": {
+        "type": "circle",
+        "tooltip": true,
+        "size": 100,
+        "stroke": "white",
+        "opacity": 0.3,
+        "strokeWidth": 1,
+        "strokeOpacity": 1
+        },
+        "encoding": {
+            "x": {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+
+            "y": {
+                "field": "mass",
+                "type": "quantitative",
+                "title": "Mass (kg)",
+                "scale": {
+                    "type": "symlog"
+                }
+            },
+
+            "tooltip": [
+                {"field": "meteorite_name", "type": "nominal", "format": "", "title": "meteorite name"},
+                {"field": "year", "type": "quantitative", "format": ""},
+                {"field": "recclass", "type": "nominal", "format": "", "title": "classification"},
+                {"field": "fall", "type": "nominal", "format": ""},
+                {"field": "mass", "type": "quantitative", "format": ",", "title": "mass (kg)"},
+                {"field": "location", "type": "nominal", "format": ""},
+                {"field": "location_type", "type": "nominal", "format": "", "title": "location type"},
+                {"field": "lat_lng", "type": "nominal", "format": "", "title": "latitude longitude"}
+            ]}
+        }
+    ]
+}
