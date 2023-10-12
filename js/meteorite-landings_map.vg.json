@@ -6,8 +6,7 @@
     "background": "#21252A",
     "config": {
       "title": {
-        "color": "white",
-        "font": "Georgia"
+        "color": "white"
       },
       "axis": {
         "labelColor": "white"
