@@ -1,0 +1,140 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": "#21252A",
+    "title": "Recclass Distribution Over the Years",
+    "width": 1000,
+    "height": 500,
+    "config": {
+      "title": {
+        "color": "white",
+        "fontSize": 15
+      },
+      "axis": {
+        "labelColor": "gray",
+        "titleColor": "gray",
+        "titleFontSize": 13,
+        "gridColor": "gray",
+        "labelFontSize": 13
+      },
+      "legend": {
+        "titleColor": "white",
+        "labelColor": "white"
+      },
+      "view": {
+        "stroke": "transparent"
+      }
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/shoumil-dev/Interactive-Visualisation-Vega-Lite/main/data/meteorite_landings_prod.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "params": [
+        {
+            "name": "Year_Max",
+            "value": 1910,
+            "bind": {
+                "input":"range",
+                "step": 10,
+                "min": 1620,
+                "max": 2013,
+                "name": "Year-Decade"
+            }
+        },
+        {
+            "name": "industry",
+            "select": {"type": "point", "fields": ["series"]},
+            "bind": "legend"
+        },
+        {
+            "name": "RecclassFilter",
+            "value": null,
+            "bind": {
+              "input": "select",
+              "options": [
+                null,
+                "L5",
+                "H6",
+                "EH4",
+                "Acapulcolite",
+                "L6", 
+                "L",
+                "H4",
+                "LL5",
+                "Diogenite-pm",
+                "Eucrite-mmict",
+                "CV3",
+                "Ureilite-an",
+                "Stone-uncl",
+                "Iron, IVA",
+                "H5",
+                "OC",
+                "CM2",
+                "Mesosiderite-A",
+                "LL4",
+                "C2-ung",
+                "Aubrite",
+                "LL3.15",
+                "L/LL4",
+                "Iron, IAB-MG",
+                "Iron, IIAB",
+                "L3",
+                "Howardite",
+                "Martian (chassignite)",
+                "L4",
+                "Iron",
+                "Iron, IAB-sLL",
+                "Pallasite",
+                "CV3"
+                
+            ],
+              "name": "Recclass"
+            }
+        }
+    ],
+    "transform": [
+      {
+        "filter": "datum.year > 0"
+      },
+      {"filter": "datum.year <= Year_Max + 10"},
+      {"filter": "datum.year >= Year_Max"},
+      {
+        "filter": "RecclassFilter === null || datum.recclass === RecclassFilter"
+      },
+      {
+        "aggregate": [
+          {"op": "count", "as": "count"}
+        ],
+        "groupby": ["year", "recclass"]
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Meteorite Count"
+      },
+      "color": {
+        "legend": null,
+        "field": "recclass",
+        "type": "nominal",
+        "scale": {
+          "scheme": "category20"
+        },
+        "title": "Recclass"
+      },
+      "tooltip": [
+        {"field": "year", "title": "Year"},
+        {"field": "recclass", "title": "Recclass"},
+        {"field": "count", "title": "Meteorite Count"}
+      ]
+    }
+  }
+  
