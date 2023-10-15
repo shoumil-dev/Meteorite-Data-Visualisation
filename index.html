@@ -43,12 +43,11 @@
     <!-- Map Idiom Section -->
 
     <p class="paragraph">
-      The data collected is on all the meteorites that have been found
-      or fallen to Earth. The dataset has information on all meteorites
-      from 2013 till a few centuries ago. The below visualisation is a
-      representation of some of the heaviest meteorites that have fallen
-      on Earth based on their geolocation, and also shows the size
-      category representation for each meteorite.
+      The data collected is on all the meteorites that have been <b>found</b>
+      or <b>fallen</b> to Earth. The dataset has information on all meteorites
+      from <b>2013</b> till a few centuries ago. The below visualisation is a
+      representation of some of the <b>heaviest</b> meteorites that have fallen
+      on Earth based on their geolocation, and also shows the <b>size category</b> representation for each meteorite.
     </p>
     <div class="map">
       <div id="meteorite-landings_map"></div>
@@ -57,66 +56,123 @@
     <!-- Pie Idiom Section -->
     <div class="pure-g">
       <div class="pure-u-2-3">
-      <h3 class="header">Fallen vs Found Meteorites</h3>
-      <p class="paragraph">
-        It is estimated that only 2.42% of meteorites that fall to Earth
-        are ever found. This is because most meteorites fall into the
-        ocean, which covers about 71% of the planet. Additionally, many
-        meteorites fall into remote areas, such as deserts and forests,
-        where they are difficult to find. The fact that only 2.42% of
-        meteorites have fallen to Earth, and 97.58% of them have been
-        found is a testament to the dedication and hard work of meteorite
-        hunters and scientists. These individuals have scoured the planet
-        in search of these rare and valuable objects, and they have made
-        significant contributions to our understanding of the solar
-        system. This pie chart visualises how few meteorites are actually
-        observed falling from the sky.
-      </p>
+        <h3 class="header">Fallen vs Found Meteorites</h3>
+        <p class="paragraph">
+          It is estimated that only <b class="green">2.42%</b> of meteorites that fall to Earth
+          are ever found. This is because most meteorites fall into the
+          ocean, which covers about <b>71%</b> of the planet. Additionally, many
+          meteorites fall into remote areas, such as <b>deserts</b> and <b>forests</b>,
+          where they are difficult to find. The fact that only <b class="green">2.42%</b> of
+          meteorites have fallen to Earth, and <b class="blue">97.58</b> of them have been
+          found is a testament to the dedication and hard work of meteorite
+          hunters and scientists. This doughnut chart visualises how <b>few</b> meteorites are actually
+          observed <b>falling</b> from the sky.
+        </p>
       </div>
-    <div class="pure-u-1-3">
-      <div id="fallen-found_pie"></div>
-    </div>
+      <div class="pure-u-1-3">
+        <div id="fallen-found_pie"></div>
+      </div>
+      
+      <div class="pure-u-1-3">
+        <div id="location_pie"></div>
+      </div>
+      <div class="pure-u-2-3">
+        <h3 class="header">Meteorites in Oceans vs Land</h3>
+        <p class="paragraph">
+          From the doughnut chart, we can see that <b class="brown">83.73%</b> of meteorites are found on land,
+          compared to a significantly smaller <b class="blue">16.27%</b> in the world's oceans. This is likely due to the
+          fact that less than <b>5%</b> of the ocean floor has been mapped. So it is likely that there are
+          many still <b>lying on the seabed</b> waiting to be discovered. Additionally, meteorites in the ocean
+          are more <b>difficult to spot</b>, blending in with the water and the seabed,
+          causing many smaller meteorites to go <b>unnoticed</b>.
+        </p>
+      </div>
     </div>
 
     <!-- Interactive Visualisation -->
     <h3 class="header">Meteorites Discovered Over Time</h3>
     <p class="paragraph">
-      From the data, we can see that the number of meteorites discovered
-      in recent times is significantly higher than previous years. This
-      can be attributed to the massive advancements in technology,
-      making it easier to locate meteorites on Earth. Additionally,
-      meteorites were rarely, if ever recorded before the last four
-      centuries or so. Also, smaller meteorites could have been lost to
-      time and never recorded.
+      From the data, we can see that the number of meteorites discovered in recent times is <b>significantly higher</b>
+      than in
+      previous years. This trend can be attributed to the massive <b>advancements in technology</b>, making it
+      substantially
+      <b>easier</b> to locate and document meteorites that have reached the Earth's surface. The proliferation of
+      <b>high resolution smartphones, cameras</b> with GPS capabilities, and easy access to the internet has empowered
+      <b>amateur astronomers</b> and <b>meteorite enthusiasts</b> to quickly capture and share meteorite falls or finds.
+    </p>
+    <p class="paragraph">
+      Furthermore, it's worth noting that meteorite <b>record keeping</b> has improved immensely over the last few centuries.
+      In earlier times, meteorites were rarely, if ever, formally recorded or recognized for what they truly were. In
+      many cases, they were perceived as <b>omens</b> or <b>curiosities</b> rather than geological specimens from space. Only with the
+      development of modern meteoritics and the recognition of meteorites as <b>scientifically valuable objects</b> did the
+      systematic documentation and study of meteorites truly begin.
+    </p>
+    <p class="paragraph">
+      Another critical factor is the <b>size</b> of the meteorites in question. Smaller meteorites, which are more <b>numerous</b>
+      than their larger counterparts, could have easily gone <b>unnoticed</b> or <b>lost</b> to the passage of time, never to be
+      recorded. It is only in recent years, with the <b>increasing awareness</b> of these smaller meteorites and more effective
+      search methods, that we've started to capture a more comprehensive picture of the meteorite population on Earth.
     </p>
     <div class="center">
       <div id="interactive_vis">
       </div>
 
-      <!-- Embedding Idioms -->
-      <script type="text/javascript">
-        var Vis1 = "js/meteorite-landings_map.vg.json";
-        var Vis2 = "js/fallen-found_pie.vg.json";
-        var Vis3 = "js/interactive_vis.vg.json";
+      <!-- Recclass Visualisation -->
+      <h3 class="header">What are the Types of Meteorite Classes?</h3>
+      <p class="paragraph">
+        Analyzing <b>recclass</b> data for meteorites over the years provides valuable insights into the <b>composition</b> and
+        <b>diversity</b> of extraterrestrial materials that have reached Earth. The recclass classification system categorizes
+        meteorites based on their <b>mineralogical and chemical characteristics</b>, offering a comprehensive understanding of
+        their origins and formation processes. By tracking changes in recclass data over time, scientists can uncover
+        trends in meteorite <b>composition</b>, identify rare or unusual meteorite types, and gain insights into the dynamic
+        <b>processes</b> occurring in the solar system.
+      </p>
+      <div class="center">
+        <div id="recclass_vis">
+        </div>
 
-        vegaEmbed("#meteorite-landings_map", Vis1, { actions: false })
+
+
+        <!-- Embedding Idioms -->
+        <script type="text/javascript">
+          var Vis1 = "js/meteorite-landings_map.vg.json";
+          var Vis2 = "js/fallen-found_pie.vg.json";
+          var Vis3 = "js/interactive_vis.vg.json";
+          var Vis4 = "js/recclass_count.vg.json";
+          var Vis5 = "js/location_pie.vg.json"
+
+          vegaEmbed("#meteorite-landings_map", Vis1, { actions: false })
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+          vegaEmbed("#fallen-found_pie", Vis2, { actions: false })
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+          vegaEmbed("#interactive_vis", Vis3, { actions: false })
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+          vegaEmbed("#recclass_vis", Vis4, { actions: false })
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+          
+          vegaEmbed("#location_pie", Vis5, { actions: false })
           .then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
           })
           .catch(console.error);
 
-        vegaEmbed("#fallen-found_pie", Vis2, { actions: false })
-          .then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          })
-          .catch(console.error);
-
-        vegaEmbed("#interactive_vis", Vis3, { actions: false })
-          .then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          })
-          .catch(console.error);
-      </script>
+        </script>
 </body>
 
 </html>
