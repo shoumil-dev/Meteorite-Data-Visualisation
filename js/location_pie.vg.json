@@ -1,0 +1,58 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A doughnut chart showing the distribution between meteorites fallen in the sea vs land",
+    "width": 10,
+    "height": 10,
+    "background": "#21252A",
+    "data": {
+      "url": "https://raw.githubusercontent.com/shoumil-dev/Interactive-Visualisation-Vega-Lite/main/data/meteorite_landings_prod.csv"
+    },
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    },
+    "transform": [
+      {
+        "filter": "datum.location_type !== 'NA' && datum.location_type !== 'Unknown'"
+      },
+      {
+        "aggregate": [{"op": "count", "as": "count"}],
+        "groupby": ["location_type"]
+      },
+      {
+        "window": [{"op": "sum", "field": "count", "as": "total"}],
+        "frame": [null, null]
+      },
+      {
+        "calculate": "(datum.count / datum.total)",
+        "as": "percentage"
+      }
+    ],
+    "encoding": {
+      "theta": {"field": "percentage", "type": "quantitative", "stack": true},
+      "color": {
+        "field": "location_type",
+        "type": "nominal",
+        "legend": null,
+        "scale": {"range": ["#BC5100", "#0080BC"]}
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "arc", "outerRadius": 150, "innerRadius": 50}
+      },
+      {
+        "mark": {"type": "text", "radius": 175, "fontSize": 20, "fontWeight": "bold"},
+        "encoding": {
+          "text": {"field": "location_type", "type": "nominal"}
+        }
+      },
+      {
+        "mark": {"type": "text", "outerRadius": 90, "fontSize": 13, "fill": "white"},
+        "encoding": {
+          "text": {"field": "percentage", "type": "quantitative", "format": ".2%"}
+        }
+      }
+    ]
+  }
