@@ -1,4 +1,4 @@
-{
+    {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Meteorite Landings Over the Years (Until 2013)",
     "width": 1000,
@@ -7,15 +7,19 @@
         "url": "https://raw.githubusercontent.com/shoumil-dev/Interactive-Visualisation-Vega-Lite/main/data/meteorite_landings_prod.csv"
     },
 
+
     "config": {
         "background": "#21252A",
         "title": {
-            "color": "white"
+            "color": "white",
+            "fontSize": 15
         },
         "axis": {
             "labelColor": "gray",
             "titleColor": "gray",
-            "gridColor": "gray"
+            "titleFontSize": 13,
+            "gridColor": "gray",
+            "labelFontSize": 13
         },
         "mark": {
             "color": "#faa500"
@@ -79,7 +83,7 @@
         {"mark": {
         "type": "circle",
         "tooltip": true,
-        "size": 100,
+        "size": 200,
         "stroke": "white",
         "opacity": 0.3,
         "strokeWidth": 1,
@@ -91,13 +95,27 @@
                 "type": "ordinal",
                 "title": "Year"
             },
-
+            
             "y": {
                 "field": "mass",
                 "type": "quantitative",
                 "title": "Mass (kg)",
                 "scale": {
                     "type": "symlog"
+                }
+            },
+            
+            "opacity": {
+                "condition": {
+                    "test": "datum['location'] == 'India' || datum['location'] == 'China' || datum['location'] == 'Malaysia'",
+                    "value": 1
+                }
+            },
+
+            "color": {
+                "condition": {
+                    "test": "datum['location'] == 'India' || datum['location'] == 'China' || datum['location'] == 'Malaysia'",
+                    "value": "#73b5ff"
                 }
             },
 
