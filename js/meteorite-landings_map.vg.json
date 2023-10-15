@@ -13,7 +13,10 @@
     },
     "legend": {
       "titleColor": "white",
-      "labelColor": "white"
+      "labelColor": "white",
+      "orient": "none",
+      "legendX": 15,
+      "legendY": 350
     },
     "view": {
       "stroke": "transparent"

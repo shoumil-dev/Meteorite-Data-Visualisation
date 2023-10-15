@@ -1,56 +1,55 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A pie chart showing the distribution between fallen and found meteorites.",
+    "description": "A doughnut chart showing the distribution between fallen and found meteorites.",
     "width": 10,
-    "height":10,
+    "height": 10,
     "background": "#21252A",
     "data": {
-        "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/data/meteorite-landings.csv"
+      "url": "https://raw.githubusercontent.com/shoumil-dev/Meteorite-Data-Visualisation/main/data/meteorite-landings.csv"
     },
-
     "config": {
-        "view": {
-            "stroke": "transparent"
-        }
+      "view": {
+        "stroke": "transparent"
+      }
     },
-
     "transform": [
-        {
-            "aggregate": [{"op": "count", "as": "count"}],
-            "groupby": ["Fall"]
-        },
-        {
-            "window": [{"op": "sum", "field": "count", "as": "total"}],
-            "frame": [null, null]
-        },
-        {
-            "calculate": "(datum.count / datum.total)",
-            "as": "percentage"
-        }
+      {
+        "aggregate": [{"op": "count", "as": "count"}],
+        "groupby": ["Fall"]
+      },
+      {
+        "window": [{"op": "sum", "field": "count", "as": "total"}],
+        "frame": [null, null]
+      },
+      {
+        "calculate": "(datum.count / datum.total)",
+        "as": "percentage"
+      }
     ],
-    
     "encoding": {
       "theta": {"field": "percentage", "type": "quantitative", "stack": true},
-      "color": {"field": "Fall", "type": "nominal", "legend": null}
+      "color": {
+        "field": "Fall",
+        "type": "nominal",
+        "legend": null,
+        "scale": {"range": ["#4CB348", "#0080BC"]}
+      }
     },
-    
     "layer": [
-        {
-            "mark": {"type": "arc", "outerRadius": 150}
-        }, 
-    
-        {
-            "mark": {"type": "text", "radius": 165, "fontSize": 20, "fontWeight": "bold"},
-            "encoding": {
-                "text": {"field": "Fall", "type": "nominal"}
-            }
-        },
-
-        {
-            "mark": {"type": "text", "outerRadius": 85, "fontSize": 13, "fill":"white"},
-            "encoding": {
-                "text": {"field": "percentage", "type": "quantitative", "format": ".2%"}
-            }
+      {
+        "mark": {"type": "arc", "outerRadius": 150, "innerRadius": 50}
+      },
+      {
+        "mark": {"type": "text", "radius": 165, "fontSize": 20, "fontWeight": "bold"},
+        "encoding": {
+          "text": {"field": "Fall", "type": "nominal"}
         }
+      },
+      {
+        "mark": {"type": "text", "outerRadius": 85, "fontSize": 13, "fill": "white"},
+        "encoding": {
+          "text": {"field": "percentage", "type": "quantitative", "format": ".2%"}
+        }
+      }
     ]
   }

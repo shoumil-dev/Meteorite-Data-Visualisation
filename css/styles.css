@@ -5,9 +5,22 @@
 #fallen-found_pie {
 	margin: 5%;
 	margin-left: 10;
+	margin-bottom: 17%;
+}
+
+#location_pie {
+	margin: 5%;
+	margin-left: 10;
+	margin-top: -40%;
+	margin-bottom: 20%;
 }
 
 #interactive_vis {
+	align-self: center;
+	margin: 5%;
+}
+
+#recclass_vis {
 	align-self: center;
 	margin: 5%;
 }
@@ -21,26 +34,30 @@
 	font-size: 350%;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-style: italic;
+	font-weight: bold;
 
   }
 
 .intro {
 text-align: center; /* Center-align the text horizontally */
-font-family: Georgia, serif; /* Use the Georgia font */
+font-family: Ari; /* Use the Georgia font */
 color: white; /* Set the text color to white */
 margin-bottom: 5%;
 margin-left: 10%;
 margin-right: 10%;
+font-style: italic;
+font-size: larger;
 }
 
 .paragraph {
-	font-family: Georgia, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: white;
 }
 
 .header {
 	font-family: Georgia, serif;
-	color: white;
+	color: orange;
+	font-style: italic;
 }
 
 .page {
@@ -58,4 +75,23 @@ margin-right: 10%;
 
 label {
 	color: white;
+}
+
+.green {
+	color: #4CB348;
+	filter: brightness(1.2);
+}
+
+.brown {
+	color: #BC5100;
+	filter: brightness(1.2);
+}
+
+.blue {
+	color: #0080BC;
+	filter: brightness(1.2);
+}
+
+b {
+	color: orange;
 }
