@@ -56,8 +56,10 @@
     <!-- Area Chart Section -->
 
     <p class="paragraph">
-      Increased awareness of meteorites in the <b>early 1960s</b> was caused by the <b>Apollo program</b> which brought meteorites to
-      the forefront of public awareness. This was because astronauts brought back <b>lunar</b> meteorites to Earth for the
+      Increased awareness of meteorites in the <b>early 1960s</b> was caused by the <b>Apollo program</b> which brought
+      meteorites to
+      the forefront of public awareness. This was because astronauts brought back <b>lunar</b> meteorites to Earth for
+      the
       first time.
       This led to an increase in people <b>reporting</b> meteorites they found, which helped to increase the number of
       meteorites discovered. Additionally, new search techniques like metal detectors and aerial surverys allowed
@@ -136,7 +138,7 @@
       effective
       search methods, that we've started to capture a more comprehensive picture of the meteorite population on Earth.
     </p>
-    <div class="center">
+    < class="center">
       <div id="interactive_vis">
       </div>
 
@@ -158,55 +160,64 @@
         <div id="recclass_vis">
         </div>
 
+        <!-- Footer -->
+      <div class="footer">
+        <p class="paragraph">
+          This visualisation has been created by <a
+            href="https://github.com/shoumil-dev/Meteorite-Data-Visualisation">Shoumil Guha</a>. The dataset has been
+          obtained from <a href="https://www.kaggle.com/datasets/nasa/meteorite-landings">NASA</a> and <a
+            href="https://www.kaggle.com/datasets/brllrb/meteorite-landings">brllrb</a> on Kaggle.
+        </p>
+      </div>
 
 
-        <!-- Embedding Idioms -->
-        <script type="text/javascript">
-          var Vis1 = "js/meteorite-landings_map.vg.json";
-          var Vis2 = "js/fallen-found_pie.vg.json";
-          var Vis3 = "js/interactive_vis.vg.json";
-          var Vis4 = "js/recclass_count.vg.json";
-          var Vis5 = "js/location_pie.vg.json"
-          var Vis6 = "js/area_chart.vg.json"
+      <!-- Embedding Idioms -->
+      <script type="text/javascript">
+        var Vis1 = "js/meteorite-landings_map.vg.json";
+        var Vis2 = "js/fallen-found_pie.vg.json";
+        var Vis3 = "js/interactive_vis.vg.json";
+        var Vis4 = "js/recclass_count.vg.json";
+        var Vis5 = "js/location_pie.vg.json"
+        var Vis6 = "js/area_chart.vg.json"
 
-          vegaEmbed("#meteorite-landings_map", Vis1, { actions: false })
-            .then(function (result) {
-              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            })
-            .catch(console.error);
+        vegaEmbed("#meteorite-landings_map", Vis1, { actions: false })
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
-          vegaEmbed("#fallen-found_pie", Vis2, { actions: false })
-            .then(function (result) {
-              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            })
-            .catch(console.error);
+        vegaEmbed("#fallen-found_pie", Vis2, { actions: false })
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
-          vegaEmbed("#interactive_vis", Vis3, { actions: false })
-            .then(function (result) {
-              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            })
-            .catch(console.error);
+        vegaEmbed("#interactive_vis", Vis3, { actions: false })
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
-          vegaEmbed("#recclass_vis", Vis4, { actions: false })
-            .then(function (result) {
-              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            })
-            .catch(console.error);
+        vegaEmbed("#recclass_vis", Vis4, { actions: false })
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
 
-          vegaEmbed("#location_pie", Vis5, { actions: false })
-            .then(function (result) {
-              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            })
-            .catch(console.error);
+        vegaEmbed("#location_pie", Vis5, { actions: false })
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
-          vegaEmbed("#area_chart", Vis6, { actions: false })
-            .then(function (result) {
-              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            })
-            .catch(console.error);
+        vegaEmbed("#area_chart", Vis6, { actions: false })
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
-        </script>
+      </script>
 </body>
 
 </html>

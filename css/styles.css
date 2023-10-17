@@ -68,6 +68,11 @@ font-size: larger;
 	font-style: italic;
 }
 
+.footer {
+	padding-bottom: 1%;
+	font-size: small;
+}
+
 .page {
 	width: 1400px;
 	margin: auto;
