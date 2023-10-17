@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": { "url": "https://raw.githubusercontent.com/shoumil-dev/Interactive-Visualisation-Vega-Lite/main/data/meteorite_landings_prod.csv" },
+  "title": "Discovered Meteorite Count Over the Years",
+  "config": {
+    "background": "#21252A",
+    "title": {
+        "color": "white",
+        "fontSize": 15,
+        "align": "center"
+    },
+    "axis": {
+        "labelColor": "gray",
+        "titleColor": "gray",
+        "titleFontSize": 13,
+        "gridColor": "gray",
+        "labelFontSize": 13
+    }
+  },
+  "vconcat": [{
+        "width": 800,
+        "height": 240,
+        "mark": "area",
+        "transform": [
+          {
+            "filter": "datum['year'] > 1950 && datum['year'] < 2015"
+          },
+          {
+            "aggregate": [
+              {
+                "op": "count",
+                "as": "count"
+              }
+            ],
+            "groupby": ["year"]
+          }
+        ],
+        "encoding": {
+            "x": {
+                "field": "year",
+                "type": "ordinal",
+                "axis": { "title": "Year", "tickCount": 10 }
+            },
+            "y": { "field": "count", "type": "quantitative", "title": "count"},
+            "fill": {
+              "value": "#FFA500"
+            },
+            "tooltip": [
+              {
+                "field": "year",
+                "title": "Year"
+              },
+              {
+                "field": "count",
+                "title": "Count"
+              }
+            ]
+        }
+    }
+    ]
+}

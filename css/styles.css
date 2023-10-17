@@ -1,5 +1,13 @@
 #meteorite-landings_map {
 	margin: 5%;
+	align-self: center;
+}
+
+#area_chart {
+	margin: 3%;
+	margin-left: 10%;
+	align-self: center;
+	align-content: center;
 }
 
 #fallen-found_pie {
