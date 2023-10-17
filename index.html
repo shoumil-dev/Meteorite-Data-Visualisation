@@ -53,6 +53,22 @@
       <div id="meteorite-landings_map"></div>
     </div>
 
+    <!-- Area Chart Section -->
+
+    <p class="paragraph">
+      Increased awareness of meteorites in the <b>early 1960s</b> was caused by the <b>Apollo program</b> which brought meteorites to
+      the forefront of public awareness. This was because astronauts brought back <b>lunar</b> meteorites to Earth for the
+      first time.
+      This led to an increase in people <b>reporting</b> meteorites they found, which helped to increase the number of
+      meteorites discovered. Additionally, new search techniques like metal detectors and aerial surverys allowed
+      finding of meteorites that had been missed in the past. This, coupled with <b>increased funding</b> for meteorite
+      research
+      and recovery programs led to the massive <b>boom</b> in meteorites discovered in the <b>1970s</b>.
+    </p>
+    <div>
+      <div id="area_chart"></div>
+    </div>
+
     <!-- Pie Idiom Section -->
     <div class="pure-g">
       <div class="pure-u-2-3">
@@ -72,7 +88,7 @@
       <div class="pure-u-1-3">
         <div id="fallen-found_pie"></div>
       </div>
-      
+
       <div class="pure-u-1-3">
         <div id="location_pie"></div>
       </div>
@@ -80,7 +96,8 @@
         <h3 class="header">Meteorites in Oceans vs Land</h3>
         <p class="paragraph">
           From the doughnut chart, we can see that <b class="brown">83.73%</b> of meteorites are found on land,
-          compared to a significantly smaller <b class="blue">16.27%</b> in the world's oceans. This is likely due to the
+          compared to a significantly smaller <b class="blue">16.27%</b> in the world's oceans. This is likely due to
+          the
           fact that less than <b>5%</b> of the ocean floor has been mapped. So it is likely that there are
           many still <b>lying on the seabed</b> waiting to be discovered. Additionally, meteorites in the ocean
           are more <b>difficult to spot</b>, blending in with the water and the seabed,
@@ -101,16 +118,22 @@
       <b>amateur astronomers</b> and <b>meteorite enthusiasts</b> to quickly capture and share meteorite falls or finds.
     </p>
     <p class="paragraph">
-      Furthermore, it's worth noting that meteorite <b>record keeping</b> has improved immensely over the last few centuries.
+      Furthermore, it's worth noting that meteorite <b>record keeping</b> has improved immensely over the last few
+      centuries.
       In earlier times, meteorites were rarely, if ever, formally recorded or recognized for what they truly were. In
-      many cases, they were perceived as <b>omens</b> or <b>curiosities</b> rather than geological specimens from space. Only with the
-      development of modern meteoritics and the recognition of meteorites as <b>scientifically valuable objects</b> did the
+      many cases, they were perceived as <b>omens</b> or <b>curiosities</b> rather than geological specimens from space.
+      Only with the
+      development of modern meteoritics and the recognition of meteorites as <b>scientifically valuable objects</b> did
+      the
       systematic documentation and study of meteorites truly begin.
     </p>
     <p class="paragraph">
-      Another critical factor is the <b>size</b> of the meteorites in question. Smaller meteorites, which are more <b>numerous</b>
-      than their larger counterparts, could have easily gone <b>unnoticed</b> or <b>lost</b> to the passage of time, never to be
-      recorded. It is only in recent years, with the <b>increasing awareness</b> of these smaller meteorites and more effective
+      Another critical factor is the <b>size</b> of the meteorites in question. Smaller meteorites, which are more
+      <b>numerous</b>
+      than their larger counterparts, could have easily gone <b>unnoticed</b> or <b>lost</b> to the passage of time,
+      never to be
+      recorded. It is only in recent years, with the <b>increasing awareness</b> of these smaller meteorites and more
+      effective
       search methods, that we've started to capture a more comprehensive picture of the meteorite population on Earth.
     </p>
     <div class="center">
@@ -120,11 +143,15 @@
       <!-- Recclass Visualisation -->
       <h3 class="header">What are the Types of Meteorite Classes?</h3>
       <p class="paragraph">
-        Analyzing <b>recclass</b> data for meteorites over the years provides valuable insights into the <b>composition</b> and
-        <b>diversity</b> of extraterrestrial materials that have reached Earth. The recclass classification system categorizes
-        meteorites based on their <b>mineralogical and chemical characteristics</b>, offering a comprehensive understanding of
+        Analyzing <b>recclass</b> data for meteorites over the years provides valuable insights into the
+        <b>composition</b> and
+        <b>diversity</b> of extraterrestrial materials that have reached Earth. The recclass classification system
+        categorizes
+        meteorites based on their <b>mineralogical and chemical characteristics</b>, offering a comprehensive
+        understanding of
         their origins and formation processes. By tracking changes in recclass data over time, scientists can uncover
-        trends in meteorite <b>composition</b>, identify rare or unusual meteorite types, and gain insights into the dynamic
+        trends in meteorite <b>composition</b>, identify rare or unusual meteorite types, and gain insights into the
+        dynamic
         <b>processes</b> occurring in the solar system.
       </p>
       <div class="center">
@@ -140,6 +167,7 @@
           var Vis3 = "js/interactive_vis.vg.json";
           var Vis4 = "js/recclass_count.vg.json";
           var Vis5 = "js/location_pie.vg.json"
+          var Vis6 = "js/area_chart.vg.json"
 
           vegaEmbed("#meteorite-landings_map", Vis1, { actions: false })
             .then(function (result) {
@@ -165,12 +193,18 @@
             })
             .catch(console.error);
 
-          
+
           vegaEmbed("#location_pie", Vis5, { actions: false })
-          .then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          })
-          .catch(console.error);
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
+
+          vegaEmbed("#area_chart", Vis6, { actions: false })
+            .then(function (result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            })
+            .catch(console.error);
 
         </script>
 </body>
